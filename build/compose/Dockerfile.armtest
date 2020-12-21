@@ -1,0 +1,9 @@
+FROM sbusso/portainer-compose-arm64:latest as builder
+
+FROM scratch
+COPY dist /
+
+COPY --from=builder /dist/docker-compose /docker-compose
+
+
+entrypoint ["/docker-compose"]

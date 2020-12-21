@@ -1,0 +1,41 @@
+FROM linuxserver/docker-compose:arm64v8-version-1.27.4 as builder
+
+FROM ghcr.io/linuxserver/baseimage-ubuntu:arm64v8-bionic as static
+
+RUN apt-get update && apt-get install --no-install-recommends -y \
+    curl \
+    gcc \
+    git \
+    libc-dev \
+    libffi-dev \
+    libgcc-6-dev \
+    libssl-dev \
+    make \
+    openssl \
+    python3-dev \
+    python3-pip \
+    zlib1g-dev \
+    patchelf scons
+
+RUN mkdir /dist
+RUN mkdir /temp
+
+COPY --from=builder /usr/local/bin/docker-compose /temp/docker-compose
+
+
+RUN pip3 install --upgrade pip
+RUN pip3 install setuptools wheel
+RUN pip3 install scons
+RUN pip3 install staticx 
+
+RUN staticx /temp/docker-compose  /dist/docker-compose
+RUN mkdir /dist/tmp
+
+
+FROM ghcr.io/linuxserver/baseimage-ubuntu:arm64v8-bionic
+
+COPY --from=builder /usr/local/bin/docker-compose-entrypoint.sh /usr/local/bin/docker-compose-entrypoint.sh
+COPY --from=static /dist/docker-compose /usr/local/bin/docker-compose-static
+COPY --from=static /temp/docker-compose /usr/local/bin/docker-compose
+COPY --from=static  /dist/tmp /tmp
+ENTRYPOINT ["sh", "/usr/local/bin/docker-compose-entrypoint.sh"]

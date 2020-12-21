@@ -1,0 +1,46 @@
+sudo docker run -ti sbusso/portainer-compose-arm64-static-v5 -h
+STATICX [1]: Version 0.12.0
+STATICX [1]: Temporary bundle dir: /tmp/staticx-iQVQ8l
+STATICX [1]: Found archive at offset 0xA5E29 (8246824 bytes)
+STATICX [1]: Archive is XZ-compressed
+STATICX [1]: Extracting tar archive to /tmp/staticx-iQVQ8l
+lrw-r--r-- root     root             0 Jan  1  0:00 1970 libc.so.6 -> libc-2.27.so
+-rwxr-xr-x root     root       1341248 Sep  2  9:18 2020 libc-2.27.so
+lrw-r--r-- root     root             0 Jan  1  0:00 1970 ld-linux-aarch64.so.1 -> ld-2.27.so
+-rwxr-xr-x root     root        129992 Sep  2  9:18 2020 ld-2.27.so
+lrw-r--r-- root     root             0 Jan  1  0:00 1970 libdl.so.2 -> libdl-2.27.so
+-rw-r--r-- root     root         18544 Sep  2  9:18 2020 libdl-2.27.so
+lrw-r--r-- root     root             0 Jan  1  0:00 1970 libpthread.so.0 -> libpthread-2.27.so
+-rwxr-xr-x root     root        137872 Sep  2  9:18 2020 libpthread-2.27.so
+lrw-r--r-- root     root             0 Jan  1  0:00 1970 libm.so.6 -> libm-2.27.so
+-rw-r--r-- root     root        691544 Sep  2  9:18 2020 libm-2.27.so
+lrw-r--r-- root     root             0 Jan  1  0:00 1970 libutil.so.1 -> libutil-2.27.so
+-rw-r--r-- root     root         10464 Sep  2  9:18 2020 libutil-2.27.so
+-rwx------ root     root          9840 Dec 10  2:22 2020 libnssfix.so
+lrw-r--r-- root     root             0 Jan  1  0:00 1970 libnss_dns.so.2 -> libnss_dns-2.27.so
+-rw-r--r-- root     root         22704 Sep  2  9:18 2020 libnss_dns-2.27.so
+lrw-r--r-- root     root             0 Jan  1  0:00 1970 libnss_files.so.2 -> libnss_files-2.27.so
+-rw-r--r-- root     root         43336 Sep  2  9:18 2020 libnss_files-2.27.so
+lrw-r--r-- root     root             0 Jan  1  0:00 1970 libresolv.so.2 -> libresolv-2.27.so
+-rw-r--r-- root     root         76408 Sep  2  9:18 2020 libresolv-2.27.so
+-rwxr-xr-x root     root       7362744 Dec 10  2:22 2020 docker-compose
+lrw-r--r-- root     root             0 Jan  1  0:00 1970 .staticx.prog -> docker-compose
+lrw-r--r-- root     root             0 Jan  1  0:00 1970 .staticx.interp -> ld-linux-aarch64.so.1
+lrw-r--r-- root     root             0 Jan  1  0:00 1970 libz.so.1 -> libz.so.1.2.11
+-rw-r--r-- root     root        116808 May 23 11:32 2017 libz.so.1.2.11
+STATICX [1]: Successfully extracted archive to /tmp/staticx-iQVQ8l
+STATICX [1]: Patching user program /tmp/staticx-iQVQ8l/docker-compose
+STATICX [1]: Current program interpreter: "i...(256 times)"
+STATICX [1]: Set new interpreter: "/tmp/staticx-iQVQ8l/.staticx.interp"
+STATICX [1]: Current RPATH (0x337): "r...(256 times)"
+STATICX [1]: Set new RPATH: "/tmp/staticx-iQVQ8l"
+STATICX [1]: Setting env var: STATICX_BUNDLE_DIR=/tmp/staticx-iQVQ8l
+STATICX [1]: Setting env var: STATICX_PROG_PATH=/usr/local/bin/docker-compose
+STATICX [1]: Ready to run child process with new argv:
+STATICX [1]:   [0] = "/tmp/staticx-iQVQ8l/docker-compose"
+STATICX [1]:   [1] = "-h"
+STATICX [8]: Child process started; ready to call execv()
+[8] Cannot open self /tmp/staticx-iQVQ8l/docker-compose or archive /tmp/staticx-iQVQ8l/docker-compose.pkg
+STATICX [1]: Child process terminated with wstatus=65280
+STATICX [1]: Removing temporary bundle dir /tmp/staticx-iQVQ8l
+STATICX [1]: Child exited with status 255
